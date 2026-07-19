@@ -9,9 +9,21 @@ A GenAI-powered stadium concierge that helps fans, volunteers, and staff navigat
 
 ---
 
-## Problem Statement
+## Problem Statement Alignment
 
-*"Build a GenAI-enabled solution that enhances stadium operations and the overall tournament experience for fans, organizers, volunteers, or venue staff... leveraging Generative AI to improve navigation, crowd management, accessibility, transportation, sustainability, multilingual assistance, operational intelligence, or real-time decision support during the FIFA World Cup 2026."*
+This solution directly addresses the challenge brief: *"Build a GenAI-enabled solution that enhances stadium operations and the overall tournament experience... leveraging Generative AI to improve navigation, crowd management, accessibility, transportation, sustainability, multilingual assistance, operational intelligence, or real-time decision support."*
+
+| Pillar | Status | Implementation Detail |
+|---|---|---|
+| **Navigation** | ✅ Fully implemented | RAG-grounded chat answers gate, section, and facility location questions using real stadium knowledge base data (`rag/data/stadium_maps.md`) |
+| **Accessibility** | ✅ Fully implemented | Dedicated accessibility knowledge base (`rag/data/accessibility_faq.md`); UI features high-contrast mode, skip-to-input link, full keyboard navigation, ARIA live regions, and screen-reader labels — accessibility is treated as a first-class feature, not an afterthought |
+| **Transportation** | ✅ Fully implemented | Metro, shuttle, parking, and ride-share guidance via natural language (`rag/data/transport_schedules.md`) |
+| **Multilingual Assistance** | ✅ Fully implemented | No separate translation layer needed — Gemini natively detects and responds in the fan's own language, verified in testing |
+| **Operational Intelligence** | ✅ Demonstrated end-to-end | Working `/api/analytics` endpoint returns gate capacity and top fan-question data. Currently backed by representative mock data; the architecture is designed so this would plug directly into real query logs (already captured via the caching layer) and live gate sensor feeds with no structural changes |
+| **Crowd Management** | 📋 Architected for, not built | The analytics endpoint's `gateStatus` structure is intentionally designed to extend into real-time crowd density alerts — a natural next iteration is pushing this data to a staff-facing dashboard with threshold-based notifications |
+| **Sustainability** | 📋 Future scope | Not addressed in this MVP. A natural extension: weighting transportation recommendations by carbon footprint, and nudging fans toward public transit over parking when both are viable |
+
+**Why this scope:** rather than superficially touching all seven pillars, this submission fully implements four with genuine GenAI grounding, demonstrates a fifth with working (if mocked) code, and transparently scopes the remaining two as documented future work. We believe a smaller set of pillars implemented with real depth — actual retrieval, actual tests, actual accessibility support — better serves the stated goal of *enhancing* stadium operations than a shallow pass across all seven.
 
 ## How Generative AI Is Used
 

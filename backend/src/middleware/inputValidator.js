@@ -1,3 +1,18 @@
+/**
+ * inputValidator.js
+ *
+ * Express middleware enforcing basic request hygiene on the chat endpoint:
+ * type checking, length limits, and HTML tag stripping to prevent
+ * injection via the chat input field before it ever reaches the LLM.
+ */
+
+/**
+ * Validates and sanitizes the incoming chat message.
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ * @param {import('express').NextFunction} next
+ * @returns {void} Calls next() on success; otherwise sends a 400 JSON error response
+ */
 function validateChatInput(req, res, next) {
   const { message } = req.body;
 

@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(helmet());
 app.use('/api/analytics', analyticsRoute);
 app.use('/api/health', healthRoute);
-app.use(cors({ origin: ['http://localhost:5173', 'https://your-vercel-url.vercel.app'] }));
+app.use(cors({ origin: ['http://localhost:5173', 'https://fifa-stadium-concierge.vercel.app'] }));
 app.use('/api/chat', chatRoute);
 app.use(cors({ origin: 'http://localhost:5173' }));
 

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
-const API_URL = 'http://localhost:5000/api/chat';
+const API_URL = 'https://fifa-stadium-concierge.onrender.com/api/chat';
 const STORAGE_KEY = 'stadium-concierge-chat-history';
 
 const defaultMessages = [

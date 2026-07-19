@@ -23,7 +23,6 @@ app.use('/api/analytics', analyticsRoute);
 app.use('/api/health', healthRoute);
 app.use(cors({ origin: ['http://localhost:5173', 'https://fifa-stadium-concierge.vercel.app'] }));
 app.use('/api/chat', chatRoute);
-app.use(cors({ origin: 'http://localhost:5173' }));
 
 app.listen(env.PORT, () => {
   console.log(`Server running on http://localhost:${env.PORT}`);
